@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -25,10 +26,23 @@ public class SignUpActivity extends AppCompatActivity {
                 openMainActivity();
             }
         });
+
+        TextView textView = findViewById(R.id.tv);
+        textView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openSignInActivity();
+            }
+        });
     }
 
     void openMainActivity(){
         Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+    }
+
+    void openSignInActivity(){
+        Intent intent = new Intent(this, SignInActivity.class);
         startActivity(intent);
     }
 }
